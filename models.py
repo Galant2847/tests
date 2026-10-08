@@ -2,10 +2,12 @@ from typing import List, Optional
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
+
 class Tag(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     term: str
+
 
 class MetObject(BaseModel):
     model_config = ConfigDict(extra="ignore")
@@ -38,8 +40,11 @@ class MetObject(BaseModel):
     @classmethod
     def url_must_point_to_met(cls, value: str) -> str:
         if not value.startswith("https://www.metmuseum.org/"):
-            raise ValueError(f"objectURL должен вести на metmuseum.org: {value!r}")
+            raise ValueError(
+                f"objectURL должен вести на metmuseum.org: {value!r}"
+            )
         return value
+
 
 class ObjectIDsResponse(BaseModel):
     model_config = ConfigDict(extra="ignore")
