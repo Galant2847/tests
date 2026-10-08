@@ -18,7 +18,7 @@ def test_known_object_has_expected_data(load_object):
 
     assert obj.isHighlight is True
     assert obj.isPublicDomain is True
-    assert "Van Gogh" in obj.artistDisplayName
+    assert "van Gogh" in obj.artistDisplayName
     assert obj.objectBeginDate <= obj.objectEndDate
     assert obj.objectURL.endswith("/436535")
 
